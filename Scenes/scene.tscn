@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://gq154d7ufntt"]
+
+[ext_resource type="Script" path="res://Script/Application.cs" id="1_l7mxs"]
+[ext_resource type="Script" path="res://Script/GameObject/Cameras/FreeCamera.cs" id="1_yjlp2"]
+[ext_resource type="Texture2D" uid="uid://baj3385cbklw" path="res://resources/sprites/Characters/Basic Charakter Spritesheet.png" id="2_be7ms"]
+[ext_resource type="Script" path="res://Script/GameObject/Entities/Agent.cs" id="4_fekbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2vy3"]
+
+[node name="Application" type="Node2D"]
+script = ExtResource("1_l7mxs")
+
+[node name="Injector" type="Node" parent="."]
+
+[node name="root" type="Node" parent="."]
+
+[node name="State" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_yjlp2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(20, 0)
+script = ExtResource("4_fekbc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_e2vy3")
+
+[node name="BasicCharakterSpritesheet" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("2_be7ms")
